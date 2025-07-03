@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
 
-function App() {
+import { filterByBrand } from './components/filters/filterByBrand';
+import { filterByType } from './components/filters//filterByType';
+import { filterByPrice } from './components/filters/filterByPrice';
+import { filterBySortBy } from './components/filters/filterBySortBy';
+
+import { cars } from './data/cars';
+import { FilterBar } from './components/filters/FilterBar';
+import { CarList } from './components/CarList';
+import { ComparisonTable } from './components/ComparisonTable';
+
+export default function App() {
+  const [selectedBrand, setSelectedBrand] = useState('');
+  const [selectedType, setSelectedType] = useState('');
+  const [selectedPrice, setSelectedPrice] = useState(50000);
+  const [selectedSortBy, setSelectedSortBy] = useState('');
+
+  // 👇 Apply filters one by one
+  let filteredCars = filterByBrand(cars, selectedBrand);
+  filteredCars = filterByType(filteredCars, selectedType);
+  filteredCars = filterByPrice(filteredCars, selectedPrice);
+  filteredCars = filterBySortBy(filteredCars, selectedSortBy);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="p-4 max-w-7xl mx-auto">
+      <h1 className="text-3xl font-bold mb-4">Car Comparison Dashboard</h1>
+      <FilterBar
+        selectedBrand={selectedBrand}
+        selectedType={selectedType}
+        selectedPrice={selectedPrice}
+        selectedSortBy={selectedSortBy}
+        onBrandChange={setSelectedBrand}
+        onTypeChange={setSelectedType}
+        onPriceChange={setSelectedPrice}
+        onSoryByChange={setSelectedSortBy}
+      />
+      <div className="grid md:grid-cols-2 gap-4">
+        <CarList cars={filteredCars} />
+        <ComparisonTable />
+      </div>
+    </main>
   );
 }
-
-export default App;
