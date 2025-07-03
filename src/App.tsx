@@ -16,7 +16,7 @@ export default function App() {
   const [selectedPrice, setSelectedPrice] = useState(50000);
   const [selectedSortBy, setSelectedSortBy] = useState('');
 
-  // 👇 Apply filters one by one
+  // Add your new filter options here
   let filteredCars = filterByBrand(cars, selectedBrand);
   filteredCars = filterByType(filteredCars, selectedType);
   filteredCars = filterByPrice(filteredCars, selectedPrice);
@@ -39,6 +39,8 @@ export default function App() {
         <CarList cars={filteredCars} />
         <ComparisonTable />
       </div>
+      // To do: 1. optimize the App file. 2. Add new features. 3. Write Test
+      cases.
     </main>
   );
 }
