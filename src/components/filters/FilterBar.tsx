@@ -9,7 +9,6 @@ type FilterBarProps = {
   onTypeChange: (value: string) => void;
   onPriceChange: (value: number) => void;
   onSoryByChange: (value: string) => void;
-  // add your new filter and state variable here
 };
 
 export const FilterBar: React.FC<FilterBarProps> = ({
@@ -63,7 +62,6 @@ export const FilterBar: React.FC<FilterBarProps> = ({
         className="w-48"
       />
       <span>Max Price: ${selectedPrice}</span>
-      // To Do: improve UI and add new filter option
     </div>
   );
 };
