@@ -39,6 +39,7 @@ export const CarList: React.FC<CarListProps> = ({ cars }) => {
                 : 'Add to Compare'}
             </button>
           </div>
+          // To Do: 1. Add scroll bar to card list.
         ))
       )}
     </div>

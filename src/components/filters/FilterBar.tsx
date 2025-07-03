@@ -63,5 +63,6 @@ export const FilterBar: React.FC<FilterBarProps> = ({
       />
       <span>Max Price: ${selectedPrice}</span>
     </div>
+    // To Do: 1. Improve UI and add new filter option.
   );
 };

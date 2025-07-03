@@ -24,7 +24,9 @@ export default function App() {
 
   return (
     <main className="p-4 max-w-7xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4">Car Comparison Dashboard</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">
+        Car Comparison Dashboard
+      </h1>
       <FilterBar
         selectedBrand={selectedBrand}
         selectedType={selectedType}
@@ -39,8 +41,7 @@ export default function App() {
         <CarList cars={filteredCars} />
         <ComparisonTable />
       </div>
-      // To do: 1. optimize the App file. 2. Add new features. 3. Write Test
-      cases.
     </main>
+    // To do: 1. optimize the App file. 2. Add new features. 3. Write Test cases.
   );
 }
