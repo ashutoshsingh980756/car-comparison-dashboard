@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import type { Car } from '../types/cars';
 
-export type CarContextType = {
+type CarContextType = {
   selectedCars: Car[];
   toggleCarSelection: (car: Car) => void;
 };

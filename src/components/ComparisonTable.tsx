@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { CarContext } from '../context/CarContext';
 
-export const ComparisonTable: React.FC = () => {
+export function ComparisonTable() {
   const { selectedCars } = useContext(CarContext);
 
   if (selectedCars.length === 0) return <p>Select cars to compare.</p>;
@@ -48,4 +48,4 @@ export const ComparisonTable: React.FC = () => {
       </table>
     </div>
   );
-};
+}

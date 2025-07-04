@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import type { Car } from '../types/cars';
 import { CarContext } from '../context/CarContext';
 
-interface CarListProps {
+type CarListProps = {
   cars: Car[];
-}
+};
 
 export const CarList: React.FC<CarListProps> = ({ cars }) => {
   const { selectedCars, toggleCarSelection } = useContext(CarContext);
