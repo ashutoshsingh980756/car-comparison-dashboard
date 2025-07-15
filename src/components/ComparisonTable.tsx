@@ -1,10 +1,14 @@
 import { useContext } from 'react';
 import { CarContext } from '../context/CarContext';
-
-export function ComparisonTable() {
+import type { Car } from '../types/cars';
+type ComparisonTableProps = {
+  cars: Car[];
+};
+export const ComparisonTable: React.FC<ComparisonTableProps> = ({ cars }) => {
   const { selectedCars } = useContext(CarContext);
+  const filteredCars = cars.filter((value) => selectedCars.includes(value));
 
-  if (selectedCars.length === 0) return <p>Select cars to compare.</p>;
+  if (filteredCars.length === 0) return <p>Select cars to compare.</p>;
 
   return (
     <div className="overflow-x-auto">
@@ -12,7 +16,7 @@ export function ComparisonTable() {
         <thead>
           <tr>
             <th className="border px-4 py-2">Attribute</th>
-            {selectedCars.map((car) => (
+            {filteredCars.map((car) => (
               <th key={car.id} className="border px-4 py-2">
                 {car.brand} {car.model}
               </th>
@@ -22,7 +26,7 @@ export function ComparisonTable() {
         <tbody>
           <tr>
             <td className="border px-4 py-2">Price</td>
-            {selectedCars.map((car) => (
+            {filteredCars.map((car) => (
               <td key={car.id} className="border px-4 py-2">
                 ${car.price}
               </td>
@@ -30,7 +34,7 @@ export function ComparisonTable() {
           </tr>
           <tr>
             <td className="border px-4 py-2">Weight</td>
-            {selectedCars.map((car) => (
+            {filteredCars.map((car) => (
               <td key={car.id} className="border px-4 py-2">
                 {car.weight}kg
               </td>
@@ -38,7 +42,7 @@ export function ComparisonTable() {
           </tr>
           <tr>
             <td className="border px-4 py-2">Rating</td>
-            {selectedCars.map((car) => (
+            {filteredCars.map((car) => (
               <td key={car.id} className="border px-4 py-2">
                 {car.rating} ⭐
               </td>
@@ -48,4 +52,4 @@ export function ComparisonTable() {
       </table>
     </div>
   );
-}
+};

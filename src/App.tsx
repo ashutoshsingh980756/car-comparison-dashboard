@@ -39,7 +39,7 @@ export default function App() {
       />
       <div className="grid md:grid-cols-2 gap-4">
         <CarList cars={filteredCars} />
-        <ComparisonTable />
+        <ComparisonTable cars={filteredCars} />
       </div>
     </main>
     // To do: 1. optimize the App file. 2. Add new features. 3. Write Test cases.
